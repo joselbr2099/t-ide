@@ -147,8 +147,11 @@ with the following content
 }
 
 F5: run runc command
+
 F6: run build command
+
 F8: show/hide filemanager
+
 F9: reload config files (mcompiler.lua)
 
 default list of keybindings for micro: https://github.com/zyedidia/micro/blob/master/runtime/help/keybindings.md
