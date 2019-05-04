@@ -7,7 +7,9 @@
        |___|         |___| |______| |_______|
 
 #Temux based IDE
+
 [[https://raw.githubusercontent.com/Odyssey2247/t-ide/master/t-ide.png|alt=t-ide]]
+
 ## Getting Started
 
 These instructions will get you Temux(https://github.com/tmux/tmux) based IDE
@@ -30,9 +32,11 @@ micro text editor:        https://github.com/zyedidia/micro
 After installing the prerequisites write in the terminal:
 
 ```
-chmod +x install.sh
-sudo ./install.sh
-tide
+$ git clone https://github.com/Odyssey2247/t-ide
+$ cd t-ide
+$ chmod +x install.sh
+$ sudo ./install.sh
+$ tide
 ```
 this open a temux based ide
 
@@ -50,20 +54,20 @@ This window opens the main configuration of the mcompiler plugin to
 be configured with custom parameters for commands "runc" and "build"
 in this windows change this:
  
-        os.execute(runn)                       
-        --os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
+    os.execute(runn)                       
+    --os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 
 for this:
  
- 	--os.execute(runn)
-        os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
+    --os.execute(runn)
+    os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 	
 to get all the output in panel 2 of the main window
 use the keybindings of tmux to move between the panels and or modify the panels
 to compile or run your code open command mode in micro (ctrl+e) and use commands:
 
-        runc   //run your code 
-        build  //build yourcode
+    runc   //run your code 
+    build  //build yourcode
 
 the output of the commands is shown in panel 2 (debug/info/output pane)
 to config build/run commands see "1:build-options" window
