@@ -6,8 +6,8 @@
        |   |         |   | |       ||   |___ 
        |___|         |___| |______| |_______|
 
-#          a Temux based IDE
-
+#Temux based IDE
+[[https://raw.githubusercontent.com/Odyssey2247/t-ide/master/t-ide.png|alt=t-ide]]
 ## Getting Started
 
 These instructions will get you Temux(https://github.com/tmux/tmux) based IDE
@@ -27,7 +27,7 @@ micro text editor:        https://github.com/zyedidia/micro
 
 ### Running
 
-After installing the prerequisites in terminal:
+After installing the prerequisites write in the terminal:
 
 ```
 chmod +x install.sh
@@ -41,34 +41,34 @@ this open a temux based ide
 when t-ide runs you have 2 working windows:
 
 	0:main-dev 
-	this windows contains text editor(micro) pane, command pane, debug/info/output pane, systeminfo pane
+
+this windows contains text editor(micro) pane, command pane, debug/info/output pane, systeminfo pane
 
 	1:build-options
-	This window opens the main configuration of the mcompiler plugin to 
-	be configured with custom parameters for commands "runc" and "build"
-        in this windows change this:
+
+This window opens the main configuration of the mcompiler plugin to 
+be configured with custom parameters for commands "runc" and "build"
+in this windows change this:
  
         os.execute(runn)                       
         --os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 
-	for this:
+for this:
  
  	--os.execute(runn)
         os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 	
-        to get all the output in panel 2 of the main window
-
+to get all the output in panel 2 of the main window
 use the keybindings of tmux to move between the panels and or modify the panels
-
 to compile or run your code open command mode in micro (ctrl+e) and use commands:
 
-    runc   //run your code 
-    build  //build yourcode
+        runc   //run your code 
+        build  //build yourcode
 
 the output of the commands is shown in panel 2 (debug/info/output pane)
 to config build/run commands see "1:build-options" window
 
-###Micro commands
+### Micro commands
 
 use the micro commands to:
 -open tabs
@@ -77,7 +77,7 @@ use the micro commands to:
 -and more
 A complete list of commands accepted by micro is here: https://github.com/zyedidia/micro/blob/master/runtime/help/commands.md
 
-##Micro and filemanager plugin
+### Micro and filemanager plugin
 
 micro is highly configurable and extensible via plugins. 
 one of these plugins is filemenager allows you to have a 
@@ -118,7 +118,7 @@ open command mode in micro (ctr+e) and:
 
 more options for this plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
 
-###Micro keybindings
+### Micro keybindings
 
 micro accepts keybindings instead of commands
 
@@ -135,7 +135,7 @@ with the following content
 
 default list of keybindings for micro: https://github.com/zyedidia/micro/blob/master/runtime/help/keybindings.md
 
-###Config t-ide panels
+### Config t-ide panels
 
 The configuration of the layout of the panels, titles and their size is in the file:
 
