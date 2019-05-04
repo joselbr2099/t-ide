@@ -6,13 +6,13 @@
        |   |         |   | |       ||   |___ 
        |___|         |___| |______| |_______|
 
-# Temux based IDE 
+# Tmux based IDE 
 
 ![](t-ide.png)
 
 ## Getting Started
 
-These instructions will get you Temux based IDE
+These instructions will get you Tmux based IDE
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ $ chmod +x install.sh
 $ sudo ./install.sh
 $ tide
 ```
-this open a temux based ide
+this open a tmux based ide
 
 ## Use
 
