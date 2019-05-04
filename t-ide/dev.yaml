@@ -1,0 +1,12 @@
+session_name: t-ide
+windows:
+- window_name: main-dev
+  layout: 477e,180x50,0,0[180x41,0,0,1,180x8,0,42{79x8,0,42,4,60x8,80,42,5,39x8,141,42,9}]
+  panes:
+    - printf '\033]2;%s\033\\' 'Editor' && micro                          # pane no. 1
+    - printf '\033]2;%s\033\\' 'Command pane' && clear                    # pane no. 2
+    - printf '\033]2;%s\033\\' 'Debug/info/output pane' && clear          # pane no. 3
+    - printf '\033]2;%s\033\\' 'System info' && ttop -T normal horizontal # pane no. 4
+- window_name: build-options
+  panes:
+    - printf '\033]2;%s\033\\' 'Editor' && micro ~/.config/micro/plugins/mcompiler/mcompiler.lua   # pane no. 1

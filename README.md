@@ -1,95 +1,143 @@
- _______         ___   ______   _______ 
-#|       |       |   | |      | |       |
-#|_     _| ____  |   | |  _    ||    ___|
-#  |   |  |____| |   | | | |   ||   |___ 
-#  |   |         |   | | |_|   ||    ___|
-#  |   |         |   | |       ||   |___ 
-#  |___|         |___| |______| |_______|
-#
+      _______         ___   ______   _______ 
+     |       |       |   | |      | |       |
+     |_     _| ____  |   | |  _    ||    ___|
+       |   |  |____| |   | | | |   ||   |___ 
+       |   |         |   | | |_|   ||    ___|
+       |   |         |   | |       ||   |___ 
+       |___|         |___| |______| |_______|
+
 #          a Temux based IDE
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
-See deployment for notes on how to deploy the project on a live system.
+These instructions will get you Temux(https://github.com/tmux/tmux) based IDE
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things do you need to use t-ide:
 
 ```
-Give examples
+latest tmux:              https://github.com/tmux/tmux
+tmuxp session-manager:    https://github.com/tmux-python/tmuxp
+ttop:                     https://github.com/ton1517/ttop
+micro text editor:        https://github.com/zyedidia/micro
+ micro filemanager plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
+ micro mcompiler plugin:   https://github.com/Odyssey2247/mcompiler
 ```
 
-### Installing
+### Running
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+After installing the prerequisites in terminal:
 
 ```
-Give the example
+chmod +x install.sh
+sudo ./install.sh
+tide
 ```
+this open a temux based ide
 
-And repeat
+## Use
 
-```
-until finished
-```
+when t-ide runs you have 2 working windows:
 
-End with an example of getting some data out of the system or using it for a little demo
+	0:main-dev 
+	this windows contains text editor(micro) pane, command pane, debug/info/output pane, systeminfo pane
 
-## Running the tests
+	1:build-options
+	This window opens the main configuration of the mcompiler plugin to 
+	be configured with custom parameters for commands "runc" and "build"
+        in this windows change this:
+ 
+        os.execute(runn)                       
+        --os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 
-Explain how to run the automated tests for this system
+	for this:
+ 
+ 	--os.execute(runn)
+        os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
+	
+        to get all the output in panel 2 of the main window
 
-### Break down into end to end tests
+use the keybindings of tmux to move between the panels and or modify the panels
 
-Explain what these tests test and why
+to compile or run your code open command mode in micro (ctrl+e) and use commands:
 
-```
-Give an example
-```
+    runc   //run your code 
+    build  //build yourcode
 
-### And coding style tests
+the output of the commands is shown in panel 2 (debug/info/output pane)
+to config build/run commands see "1:build-options" window
 
-Explain what these tests test and why
+###Micro commands
 
-```
-Give an example
-```
+use the micro commands to:
+-open tabs
+-open file manager
+-split panels
+-and more
+A complete list of commands accepted by micro is here: https://github.com/zyedidia/micro/blob/master/runtime/help/commands.md
 
-## Deployment
+##Micro and filemanager plugin
 
-Add additional notes about how to deploy this on a live system
+micro is highly configurable and extensible via plugins. 
+one of these plugins is filemenager allows you to have a 
+directory tree to the left of the editing window (like an ide)
 
-## Built With
+to open a tree hit ctrl+e and:
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+    tree
 
-## Contributing
+to move use:
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+    cursors up and down  
 
-## Versioning
+to open file:
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+    press tab
 
-## Authors
+to close current pane (in micro):
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+    ctrl+q
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+to move between panels (in micro):
 
-## License
+    ctrl+w
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+to open a new tab 
+  
+    ctrl+t
 
-## Acknowledgments
+move between tabs
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+    alt+. alt+,
+
+to start the file tree whenever the micro starts 
+open command mode in micro (ctr+e) and:
+
+    set filemanager-openonstart true
+
+more options for this plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
+
+###Micro keybindings
+
+micro accepts keybindings instead of commands
+
+simple, create a file called bindings.json in:
+
+	~/.config/micro
+
+with the following content
+
+    {
+        "F5": "command:runc",
+        "F6": "command:build",
+    }
+
+default list of keybindings for micro: https://github.com/zyedidia/micro/blob/master/runtime/help/keybindings.md
+
+###Config t-ide panels
+
+The configuration of the layout of the panels, titles and their size is in the file:
+
+    /etc/t-ide/dev.yaml
 
