@@ -8,11 +8,11 @@
 
 #Temux based IDE
 
-[[https://raw.githubusercontent.com/Odyssey2247/t-ide/master/t-ide.png|alt=t-ide]]
+![](t-ide.png)
 
 ## Getting Started
 
-These instructions will get you Temux(https://github.com/tmux/tmux) based IDE
+These instructions will get you Temux based IDE
 
 ### Prerequisites
 
@@ -42,6 +42,8 @@ this open a temux based ide
 
 ## Use
 
+![](windows.png)
+
 when t-ide runs you have 2 working windows:
 
 	0:main-dev 
@@ -49,6 +51,8 @@ when t-ide runs you have 2 working windows:
 this windows contains text editor(micro) pane, command pane, debug/info/output pane, systeminfo pane
 
 	1:build-options
+
+![](config.png)
 
 This window opens the main configuration of the mcompiler plugin to 
 be configured with custom parameters for commands "runc" and "build"
