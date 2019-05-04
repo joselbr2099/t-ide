@@ -152,3 +152,7 @@ The configuration of the layout of the panels, titles and their size is in the f
 
     /etc/t-ide/dev.yaml
 
+add this to .tmux.conf for pane titles
+
+    set -g pane-border-format "#{pane_index} #{pane_title}"
+    set -g pane-border-status top
