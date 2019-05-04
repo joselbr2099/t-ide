@@ -42,9 +42,9 @@ this open a temux based ide
 
 ## Use
 
-![](windows.png)
-
 when t-ide runs you have 2 working windows:
+
+![](windows.png)
 
 	0:main-dev 
 
@@ -67,14 +67,17 @@ for this:
     os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
 	
 to get all the output in panel 2 of the main window
-use the keybindings of tmux to move between the panels and or modify the panels
+this file is in
+
+    ~/.config/micro/plugins/mcompiler/mcompiler.lua
+
 to compile or run your code open command mode in micro (ctrl+e) and use commands:
 
     runc   //run your code 
     build  //build yourcode
-
+    
 the output of the commands is shown in panel 2 (debug/info/output pane)
-to config build/run commands see "1:build-options" window
+use the keybindings of tmux to move between the panels and or modify the panels
 
 ### Micro commands
 
