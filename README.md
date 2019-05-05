@@ -144,7 +144,7 @@ with the following content
     "F6": "command:build",
     "F8": "command:tree",
     "F9": "command:reload"
-}
+    }
 
 F5: run runc command
 
