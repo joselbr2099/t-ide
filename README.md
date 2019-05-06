@@ -19,12 +19,12 @@ These instructions will get you Tmux based IDE
 What things do you need to use t-ide:
 
 ```
-latest tmux:              https://github.com/tmux/tmux
-tmuxp session-manager:    https://github.com/tmux-python/tmuxp
-ttop:                     https://github.com/ton1517/ttop
-micro text editor >= micro-1.4.2-dev:        https://github.com/zyedidia/micro
- micro filemanager plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
- micro mcompiler plugin:   https://github.com/Odyssey2247/mcompiler
+latest tmux >= tmux next-3.0 :              https://github.com/tmux/tmux
+tmuxp session-manager:    		    https://github.com/tmux-python/tmuxp
+ttop:                                       https://github.com/ton1517/ttop
+micro text editor >= micro-1.4.2-dev:       https://github.com/zyedidia/micro
+ micro filemanager plugin:                  https://github.com/NicolaiSoeborg/filemanager-plugin
+ micro mcompiler plugin:                    https://github.com/Odyssey2247/mcompiler
 ```
 
 ### Running
