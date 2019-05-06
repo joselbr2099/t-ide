@@ -55,17 +55,7 @@ this windows contains text editor(micro) pane, command pane, debug/info/output p
 ![](config.png)
 
 This window opens the main configuration of the mcompiler plugin to 
-be configured with custom parameters for commands "runc" and "build"
-in this windows change this:
- 
-    os.execute(runn)                       
-    --os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
-
-for this:
- 
-    --os.execute(runn)
-    os.execute("tmux run-shell -t 2 '" .. runn .. "' " )
-	
+be configured with custom parameters for commands "runc", "build", "bug"
 to get all the output in panel 2 of the main window
 this file is in
 
@@ -75,6 +65,7 @@ to compile or run your code open command mode in micro (ctrl+e) and use commands
 
     runc   //run your code 
     build  //build yourcode
+    debug  //debug yourcode
     
 the output of the commands is shown in panel 2 (debug/info/output pane)
 use the keybindings of tmux to move between the panels and or modify the panels
