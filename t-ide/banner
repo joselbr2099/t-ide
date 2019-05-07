@@ -1,14 +1,13 @@
-      _______         ___   ______   _______ 
-     |       |       |   | |      | |       |
-     |_     _| ____  |   | |  _    ||    ___|
-       |   |  |____| |   | | | |   ||   |___ 
-       |   |         |   | | |_|   ||    ___|
-       |   |         |   | |       ||   |___ 
-       |___|         |___| |______| |_______|
+  _______         ___   ______   _______ 
+ |       |       |   | |      | |       |
+ |_     _| ____  |   | |  _    ||    ___|
+   |   |  |____| |   | | | |   ||   |___ 
+   |   |         |   | | |_|   ||    ___|
+   |   |         |   | |       ||   |___ 
+   |___|         |___| |______| |_______|
 
-# Tmux based IDE 
-
-![](t-ide.png)
+# Tmux based IDE
+   https://github.com/Odyssey2247/t-ide 
 
 ## Getting Started
 
@@ -52,7 +51,6 @@ this windows contains text editor(micro) pane, command pane, debug/info/output p
 
 	1:build-options
 
-![](config.png)
 
 This window opens the main configuration of the mcompiler plugin to 
 be configured with custom parameters for commands "runc", "build", "bug"

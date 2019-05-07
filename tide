@@ -1,2 +1,2 @@
 #!/bin/sh
-tmuxp load /etc/t-ide/dev.yaml
+tmuxp load ~/.config/t-ide/dev.yaml

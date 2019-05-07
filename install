@@ -1,0 +1,5 @@
+    echo "install t-ide .........."
+    cp -R --preserve t-ide ~/.config/t-ide
+    cp tide ~/.local/bin
+    echo "install t-ide folder in ~/.config/t-ide"
+    echo "install tide script in ~/.local/bin/t-ide"
