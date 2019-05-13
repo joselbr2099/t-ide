@@ -65,7 +65,7 @@ echo ""
 pip install --user tmuxp &> /dev/null
 echo "--> install ttop..."
 echo ""
-pip install ttop &> /dev/null
+pip install --user ttop &> /dev/null
 echo "Instalation complete, Now you can use the tide by typing:"
 echo "$ tide"
 echo ""
