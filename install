@@ -1,5 +1,71 @@
-    echo "install t-ide .........."
-    cp -R --preserve t-ide ~/.config/t-ide
-    cp tide ~/.local/bin
-    echo "install t-ide folder in ~/.config/t-ide"
-    echo "install tide script in ~/.local/bin/t-ide"
+#!/bin/bash
+# 2019 Jose Luis Blas Ralde a.k.a Odyssey2247
+#email: regex1024@gmail.com
+#script to launch and manage tid
+MICRO="micro-1.4.2-dev.61-linux64.tar.gz"
+
+echo "  _______         ___   ______   _______ "
+echo " |       |       |   | |      | |       |"
+echo " |_     _| ____  |   | |  _    ||    ___|"
+echo "   |   |  |____| |   | | | |   ||   |___ "
+echo "   |   |         |   | | |_|   ||    ___|"
+echo "   |   |         |   | |       ||   |___ "
+echo "   |___|         |___| |______| |_______|"
+echo "  			 Tmux based IDE"
+echo "     https://github.com/Odyssey2247/t-ide"
+echo ""
+echo "INSTALLING T-IDE-------------------------"
+echo "Instalation info:"
+echo 'install "t-ide" base folder in ~/.config/t-ide'
+echo 'install "tide" script in ~/.local/bin/t-ide'
+echo 'NOTE: Please ensure you have a "$HOME/.local/bin" in your $PATH '
+echo ""
+
+#check if the ~./,config exist
+#and copy t-ide base file
+if [ ! -d ~/.config ]; 
+	 then
+	 	echo "creating ~.config dir..."
+	 	mkdir ~/.config
+	 	sleep 1
+fi
+echo "--> copying t-ide base files to ~/.config/t-ide"
+echo ""
+cp -R --preserve t-ide ~/.config/t-ide
+
+#chek if the ~/.local/bin exist
+#and install main script
+if [ ! -d ~/.local ];
+	then 
+		echo "creating ~/.local/bin directory ..."
+		mkdir ~/.local
+		mkdir ~/.local/bin   
+		sleep 1
+fi
+cp tide ~/.local/bin
+
+#download micro and install plugins
+echo "--> download micro..."
+echo ""
+cd ~/.config/t-ide
+wget -c https://github.com/zyedidia/micro/releases/download/nightly/$MICRO &> /dev/null 
+tar -xf $MICRO
+cp $(ls | grep -v .tar.gz | grep -v t-ide)/micro ./t-ide/micro-base
+rm $MICRO
+rm -r $(ls | grep -v .tar.gz | grep -v t-ide)
+echo "--> download mcompiler plugin for micro..."
+echo ""
+git clone https://github.com/Odyssey2247/mcompiler ./t-ide/micro-base/micro-conf/plugins/mcompiler &> /dev/null 
+sed -i -e 's/tide="no"/tide="yes"/g' ~/.config/t-ide/t-ide/micro-base/micro-conf/plugins/mcompiler/mcompiler.lua
+echo "--> download filemanager plugin for micro..."
+echo ""
+git clone https://github.com/NicolaiSoeborg/filemanager-plugin ./t-ide/micro-base/micro-conf/plugins/filemanager &> /dev/null
+echo "--> install tmuxp..."
+echo ""
+pip install --user tmuxp &> /dev/null
+echo "--> install ttop..."
+echo ""
+pip install ttop &> /dev/null
+echo "Instalation complete, Now you can use the tide by typing:"
+echo "$ tide"
+echo ""

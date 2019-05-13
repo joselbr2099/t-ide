@@ -1,0 +1,2 @@
+#!/bin/bash
+~/.config/t-ide/t-ide/micro-base/micro -config-dir ~/.config/t-ide/t-ide/micro-base/micro-conf $1

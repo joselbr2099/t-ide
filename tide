@@ -1,2 +1,185 @@
-#!/bin/sh
-tmuxp load ~/.config/t-ide/dev.yaml
+#!/usr/bin/env bash
+# 2019 Jose Luis Blas Ralde a.k.a Odyssey2247
+#email: regex1024@gmail.com
+#script to launch and manage tide
+
+echo "    _______  ___   ______   _______ "
+echo "   |       ||   | |      | |       |"
+echo "   |_     _||   | |  _    ||    ___|"
+echo "     |   |  |   | | | |   ||   |___ "
+echo "     |   |  |   | | |_|   ||    ___|"
+echo "     |   |  |   | |       ||   |___ "
+echo "     |___|  |___| |______| |_______|"
+echo "                     Temux based IDE"
+echo "                                    "
+echo "https://github.com/Odyssey2247/t-ide"
+echo ""
+
+function helpt(){
+  echo  "usage:"
+  echo  "tide [profile] -d [profile] -l -t -a -k [profile] -h"
+  echo  " "
+  echo  "create/open profile:"
+  echo  "   tide foo"
+  echo  " "
+  echo  "-d delete profile:"
+  echo  "   tide -d foo"
+  echo  " "
+  echo  "-l list profiles:"
+  echo  "   tide -l"
+  echo  " "
+  echo  "-t list tide sessions:"
+  echo  "   tide -t"
+  echo  " "
+  echo  "-a kill all sessions"
+  echo  "   tide -a"
+  echo  " "
+  echo  "-k kill profile from tmux session:"
+  echo  "   tide -k foo"
+  echo  " "
+  echo  "-h this help:"
+  echo  " "
+  echo  "NOTE: All config files are locatet at: ~/.config/t-ide"
+  echo  ""
+}
+
+arg="$1"
+  case $arg in
+      -d)
+            if [ -n "$2" ]; then
+    		        if [ -d ~/.config/t-ide/$2 ]; then
+			               if [ $2 == "t-ide" ]; then
+						   			echo ""
+						            echo "sorry, you can not delete the default configuration folder" 
+									echo "without this folder tide will not work"
+									echo ""
+						   	   else
+								    echo ""
+		    	           			read -p "Delete $2 profile [y/n]:" answer
+			                        case $answer in
+										y)
+											echo ""
+											echo "Profile $2 Delete"
+											rm -r ~/.config/t-ide/$2
+											echo ""
+											shift
+											shift
+											;;
+										n)
+											shift
+											shift
+											;;
+										*)
+											echo ""
+											echo "Option not valid please use [y/n]"
+											echo ""
+											shift
+											shift
+											;;
+								    esac
+						   fi	  	
+		                else
+		                    echo ""
+			                echo "The profile $2 does not exist"
+			                echo ""
+		            fi
+	            else
+	                echo ""
+    		    	echo "-d requires a [profile] parameter"
+    		    	echo ""
+	        fi
+            shift
+            shift
+            ;;
+	  -l)
+	    	echo ""
+	    	echo "List all profiles created"
+	    	cd ~/.config/t-ide && ls -d */
+	    	echo ""
+            shift
+            shift
+            ;;
+      -t)
+		    echo ""
+		    echo "List tmux sessions"
+		    #tmux ls | awk -F  ":" '{print $1}'
+		    tmux list-sessions -F '#{session_name}'
+		    echo ""
+		    shift
+            shift
+            ;;
+      -a)
+            echo ""
+            echo "Kill all sessions"
+            for s in `tmux list-sessions -F '#{session_name}'` ; do
+               tmux kill-session -t $s &> /dev/null
+            done
+            echo ""
+            echo "All sessions killed"
+            echo ""
+            shift
+            shift
+            ;;
+	  -k)
+            echo ""
+	    	echo "Kill $2 session:"
+	    	sleep 1
+            tmux kill-session -t $2 &> /dev/null
+            if [ $? -eq 0 ]; then
+					echo ""
+					echo "session $2 killed"
+					echo "tmux sessions: "
+					echo ""
+					tmux ls | awk -F  ":" '{print $1}'
+					echo ""
+               else
+					echo ""
+					echo "session $2 is not running"
+					echo ""
+	   		 fi
+	    	shift
+            shift
+            ;;
+      -h)
+            helpt
+            shift
+            shift
+            ;;
+      -*)
+            echo ""
+            echo "Unrecognized option: $1"
+            echo ""
+            helpt
+            shift
+            shift
+            ;;
+       *)
+	    	if [ -n "$1" ]; then
+                	if [ ! -d ~/.config/t-ide/"$1" ]; then			  
+							echo ""
+							echo "Creating Profile $1 and loading it"
+							echo ""
+							sleep 1
+							mkdir ~/.config/t-ide/$1
+							cp ~/.config/t-ide/t-ide/t-ide.yaml ~/.config/t-ide/$1/$1.yaml
+							cp ~/.config/t-ide/t-ide/empty.lua ~/.config/t-ide/$1/$1.lua
+							sed -i -e "s/session_name: t-ide/session_name: $1/g" ~/.config/t-ide/$1/$1.yaml
+					fi
+					echo ""
+					echo "Loading profile $1"
+					echo ""
+					sleep 1
+					export PATH="$PATH:~/.config/t-ide/t-ide" &> /dev/null
+					tmuxp load ~/.config/t-ide/$1/$1.yaml
+           		else
+					echo ""
+					echo "Launch default profile: 't-ide' "
+					echo ""
+					sleep 1
+					export PATH="$PATH:~/.config/t-ide/t-ide" &> /dev/null
+					tmuxp load ~/.config/t-ide/t-ide/t-ide.yaml
+           	fi
+           shift
+           shift
+           ;;
+    esac 

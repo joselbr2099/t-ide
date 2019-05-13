@@ -3,10 +3,12 @@ windows:
 - window_name: main-dev
   focus: true
   layout: 477e,180x50,0,0[180x41,0,0,1,180x8,0,42{79x8,0,42,4,60x8,80,42,5,39x8,141,42,9}]
+  shell_command_before:
+  - clear
   panes:
   - shell_command:
     - printf '\033]2;%s\033\\' 'Editor' 
-    - cat ~/.config/t-ide/banner | micro              # pane no. 1
+    - ~/.config/t-ide/t-ide/micro ~/.config/t-ide/t-ide/banner  # pane no. 1
     focus: true
   - shell_command:
     - printf '\033]2;%s\033\\' 'Command pane' 
@@ -21,4 +23,4 @@ windows:
   panes:
   - shell_command:
     - printf '\033]2;%s\033\\' 'Editor' 
-    - micro ~/.config/micro/plugins/mcompiler/mcompiler.lua   # pane no. 1
+    - ~/.config/t-ide/t-ide/micro ~/.config/t-ide/$(tmux display-message -p '#S')/$(tmux display-message -p '#S').lua   # pane no. 1
