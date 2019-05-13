@@ -16,7 +16,7 @@ Tide is a very simple IDE command line based on Tmux, the micro text editor, the
 The idea is to have IDE with the most basic aspects and avoid distractions and installations of unnecessary complements, which 
 can also work on any computer with limited resources
 
-Tide allows you to work with any language simply by changing the variables for the execution/construction/ebugging in te build options windows
+Tide allows you to work with any language simply by changing the variables for the execution/construction/debugging in te build options windows
 
 tide also supports profiles, this will allow you to work with different languages you just have to open a new terminal and write tide foo
 
