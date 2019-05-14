@@ -114,6 +114,12 @@ use the keybindings of tmux to move between the panels and or modify the panels
 micro only runs in each session of tide with its own configuration, this will 
 prevent conflicts with a different installation of micro
 
+the configuration of the variables in the session initiated will be the same 
+for all the micro instances within that session
+
+example:
+if you start a profile with variables configured to work with python, all the new instances of micro will work with the same variables
+
 ### Tide keybindings for micro
 
 micro accepts keybindings instead of commands

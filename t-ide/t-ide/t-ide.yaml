@@ -1,3 +1,5 @@
+global_options:
+  default-command: /usr/bin/env bash
 session_name: t-ide
 windows:
 - window_name: main-dev

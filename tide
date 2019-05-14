@@ -169,14 +169,14 @@ arg="$1"
 					echo "Loading profile $1"
 					echo ""
 					sleep 1
-					export PATH="$PATH:~/.config/t-ide/t-ide" &> /dev/null
+					export PATH="$PATH:$HOME/.config/t-ide/t-ide" &> /dev/null
 					tmuxp load ~/.config/t-ide/$1/$1.yaml
            		else
 					echo ""
 					echo "Launch default profile: 't-ide' "
 					echo ""
 					sleep 1
-					export PATH="$PATH:~/.config/t-ide/t-ide" &> /dev/null
+					export PATH="$PATH:$HOME/.config/t-ide/t-ide" &> /dev/null
 					tmuxp load ~/.config/t-ide/t-ide/t-ide.yaml
            	fi
            shift

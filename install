@@ -36,9 +36,15 @@ cp -R --preserve t-ide ~/.config/t-ide
 #chek if the ~/.local/bin exist
 #and install main script
 if [ ! -d ~/.local ];
-	then 
+	then
 		echo "creating ~/.local/bin directory ..."
 		mkdir ~/.local
+		mkdir ~/.local/bin
+		sleep 1
+fi
+if [ ! -d ~/.local/bin ];
+	then 
+		echo "creating ~/.local/bin directory ..."
 		mkdir ~/.local/bin   
 		sleep 1
 fi
@@ -63,9 +69,25 @@ git clone https://github.com/NicolaiSoeborg/filemanager-plugin ./t-ide/micro-bas
 echo "--> install tmuxp..."
 echo ""
 pip install --user tmuxp &> /dev/null
+if [ $? -eq 0 ]
+then
+  echo "    Successfully installed tmuxp"
+else
+  echo "    Error please install manually: " >&2
+  echo "    $ pip install --user tmuxp" 
+fi
+echo ""
 echo "--> install ttop..."
 echo ""
 pip install --user ttop &> /dev/null
+if [ $? -eq 0 ]
+then
+  echo "    Successfully installed ttop"
+else
+  echo "    Eroor please install manually" >&2
+  echo "    $ pip install --user ttop"
+fi
+echo ""
 echo "Instalation complete, Now you can use the tide by typing:"
 echo "$ tide"
 echo ""
