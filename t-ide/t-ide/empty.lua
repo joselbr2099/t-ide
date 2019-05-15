@@ -29,9 +29,18 @@ VERSION = "1.0.1"
 
   debug = ""
 
+--[[
+    "folder": "yes" to compile from the current folder instead of a file 
+              "no"  to compile from the current file   
+              default "no"
+]]--
+
+  folder ="no"
+
 --[[-END CONFIG VARS-----------------------------------------------------------------]]--
 --{{-SET-COMMAND VARS----------------------------------------------------------------]]--
  SetOption("runc", runc)
  SetOption("build", build)
  SetOption("debug", debug)
+ SetOption("folder", folder)
 --{{-SET-COMMAND VARS----------------------------------------------------------------]]--
