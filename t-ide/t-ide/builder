@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#construction script for mcompiler and Tide
+#https://github.com/Odyssey2247/t-ide
+#The parameters are:
+# $1: comand and parameters
+# $2: file or folder
+# $3: execution tipe run/build/debug
+# $4: combination of $1 and $2
+clear
+echo ""
+echo "+-------------------------------------------+"
+echo "COMMAND_USE: $1 $2 "
+echo "INIT-$3"
+echo "+-------------------------------------------+"
+echo ""
+start=`date +%s`
+eval $4
+if [ $? -eq 0 ]
+    then	
+	echo ""  
+	echo "ALL_OK_NO_ERRORS" 
+    else
+	echo ""
+	echo "DETECTED_ERRORS"
+fi
+echo "--------------------------------------------+"
+echo "Finish-$3"
+end=`date +%s`
+echo "Time: $((end-start))"

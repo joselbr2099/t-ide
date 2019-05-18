@@ -16,6 +16,7 @@ windows:
     - printf '\033]2;%s\033\\' 'Command pane' 
     - clear                                           # pane no. 2
   - shell_command:
+    - PS1=">"
     - printf '\033]2;%s\033\\' 'Debug/info/output pane' 
     - clear                                           # pane no. 3
   - shell_command:
