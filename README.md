@@ -191,9 +191,9 @@ more options for this plugin: https://github.com/NicolaiSoeborg/filemanager-plug
 
 ### Config t-ide panels
 
-The configuration of the layout of the panels, titles and their size is in the file:
+The configuration of the layout of the panels, titles and their size is 1: window:
 
-    /etc/t-ide/dev.yaml
+![](panelconf.png)
 
 add this to .tmux.conf for pane titles
 
