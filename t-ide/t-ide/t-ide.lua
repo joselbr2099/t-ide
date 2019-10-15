@@ -4,10 +4,13 @@ VERSION = "1.0.1"
 
 --[[
 
-    "runc" this variable is responsible for running the program/script, you can use any interpreter/compiler etc
-    examples:
+    "runc" this variable is responsible for running the program/script, you can use any interpreter/compilec, the file name
+    is added automatically examples:
     runc = "go run"
-    runc = "python"	
+    runc = "python"
+
+    if you need to specify the file name in a fixed position use #FILE, examples:
+    runc = "nasm -felf64 #FILE && ld hello.o && ./a.out"	
 ]]--
     -- compiler/interpreter params, change this for custom param
   runc = ""

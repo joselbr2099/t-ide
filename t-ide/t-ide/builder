@@ -9,7 +9,7 @@
 clear
 echo ""
 echo "+-------------------------------------------+"
-echo "COMMAND_USE: $1 $2 "
+echo "COMMAND_USE: $1 "
 echo "INIT-$3"
 echo "+-------------------------------------------+"
 echo ""
