@@ -54,7 +54,7 @@ cp tide ~/.local/bin
 echo "--> download micro..."
 echo ""
 cd ~/.config/t-ide
-wget -c https://github.com/zyedidia/micro/releases/download/nightly/$MICRO &> /dev/null 
+wget -c https://github.com/zyedidia/micro/releases/download/v1.4.1/$MICRO &> /dev/null 
 tar -xf $MICRO
 cp $(ls | grep -v .tar.gz | grep -v t-ide)/micro ./t-ide/micro-base
 rm $MICRO
