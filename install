@@ -2,7 +2,7 @@
 # 2019 Jose Luis Blas Ralde a.k.a Odyssey2247
 #email: regex1024@gmail.com
 #script to launch and manage tid
-MICRO="micro-1.4.2-dev.61-linux64.tar.gz"
+MICRO="micro-1.4.1-linux64.tar.gz"
 
 echo "  _______         ___   ______   _______ "
 echo " |       |       |   | |      | |       |"
