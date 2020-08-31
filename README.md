@@ -62,6 +62,16 @@ micro text editor:        https://github.com/zyedidia/micro
 
     create/open profile:
      tide foo
+     
+    -w set/create work dir (default current):
+     tide [profile] -w <dir>
+ 
+    -o open/create file:
+     tide [profile] -o foo.py
+ 
+    -i set default interpreter/compiler/debugger:
+     tide [profile] -i python3
+
 
     -d delete profile:
      tide -d foo

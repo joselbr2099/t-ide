@@ -17,10 +17,19 @@ echo ""
 
 function helpt(){
   echo  "usage:"
-  echo  "tide [profile] -d [profile] -l -t -a -k [profile] -h"
+  echo  "tide [profile] -w -o -i -d [profile] -l -t -a -k [profile] -h"
   echo  " "
   echo  "create/open profile:"
   echo  "   tide foo"
+  echo  " "
+  echo  "-w set/create work dir (default current):"
+  echo  "   tide [profile] -w <dir>"
+  echo  " "
+  echo  "-o open/create file:"
+  echo  "   tide [profile] -o foo.py"
+  echo  " "
+  echo  "-i set default interpreter/compiler/debugger:"
+  echo  "   tide [profile] -i python3"
   echo  " "
   echo  "-d delete profile:"
   echo  "   tide -d foo"
@@ -41,6 +50,59 @@ function helpt(){
   echo  " "
   echo  "NOTE: All config files are locatet at: ~/.config/t-ide"
   echo  ""
+}
+
+function setDefaults(){
+	PROFILE=$1
+	shift
+	echo " [!] Configuring .."
+	while getopts ":w:o:i:" opt; do
+		case $opt in
+			w) 
+				if [ ! -z $OPTARG ]
+					then
+						if [ $OPTARG == "."  ]
+							then
+								echo " [+] Work dir: $(pwd)"
+								sed -i "s%cd .*$%cd '$(pwd)'%g" ~/.config/t-ide/$PROFILE/$PROFILE.yaml
+							else
+								if [ ! -d $OPTARG ] 
+									then
+										mkdir $OPTARG
+								fi
+								#TMP=$(pwd)/$3	
+								sed -i "s%cd .*$%cd '$(pwd)/$OPTARG'%g" ~/.config/t-ide/$PROFILE/$PROFILE.yaml
+								echo " [+] Work dir: $(pwd)/$OPTARG"
+						fi
+				fi				
+				;;
+			o)
+				if [ ! -z $OPTARG ]
+					then
+						echo " [+] Open file: $OPTARG"
+						sed -i "0,/\~\/.config\/t-ide\/t-ide\/micro .*$/s/\~\/.config\/t-ide\/t-ide\/micro .*$/\~\/.config\/t-ide\/t-ide\/micro '$OPTARG'/g" ~/.config/t-ide/$PROFILE/$PROFILE.yaml
+				fi	
+				;;
+			i)
+				if [ ! -z $OPTARG ]
+					then 
+						echo " [+] Interpreter/compiler: $OPTARG"
+						sed -i "s/runc = .*$/runc = '$OPTARG'/g" ~/.config/t-ide/$PROFILE/$PROFILE.lua
+				fi	
+				;;		
+		esac
+	done			
+}
+
+function checkWorkdir(){
+	workDir=$(cat ~/.config/t-ide/$1/$1.yaml | grep cd | awk '{print $3}'| tr -d "'")
+	if [ ! -d $workDir ]
+		then
+			echo " [!] ERROR profile folder: $workDir does not exist"
+			echo " [!]       current workdir(not set): $(pwd)"
+			echo " [!]       set work dir with -w option"
+	fi
+
 }
 
 arg="$1"
@@ -171,6 +233,8 @@ arg="$1"
 					echo ""
 					sleep 1
 					export PATH="$PATH:$HOME/.config/t-ide/t-ide" &> /dev/null
+					setDefaults "$@"
+					checkWorkdir $1
 					tmuxp load ~/.config/t-ide/$1/$1.yaml
            		else
 					echo ""
@@ -178,6 +242,7 @@ arg="$1"
 					echo ""
 					sleep 1
 					export PATH="$PATH:$HOME/.config/t-ide/t-ide" &> /dev/null
+					setDefaults "$@"
 					tmuxp load ~/.config/t-ide/t-ide/t-ide.yaml
            	fi
            shift

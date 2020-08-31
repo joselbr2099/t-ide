@@ -3,10 +3,10 @@ global_options:
 session_name: t-ide
 windows:
 - window_name: Main-dev
-  focus: true
   layout: 477e,180x50,0,0[180x41,0,0,1,180x8,0,42{79x8,0,42,4,60x8,80,42,5,39x8,141,42,9}]
   shell_command_before:
   - clear
+  - cd $(pwd)
   panes:
   - shell_command:
     - printf '\033]2;%s\033\\' 'Editor' 
@@ -23,13 +23,11 @@ windows:
     - printf '\033]2;%s\033\\' 'System info'
     - ttop -T normal horizontal                       # pane no. 4
 - window_name: Settings
-  focus: true
   layout: 033a,180x50,0,0{90x50,0,0,11,89x50,91,0,12}
   panes:
   - shell_command:
     - printf '\033]2;%s\033\\' 'build-options'        # pane no. 1
     - ~/.config/t-ide/t-ide/micro ~/.config/t-ide/$(tmux display-message -p '#S')/$(tmux display-message -p '#S').lua   # pane no. 1
-    focus: true
   - shell_command:
     - printf '\033]2;%s\033\\' 'tide-layout'          # pane no. 2
     - ~/.config/t-ide/t-ide/micro ~/.config/t-ide/$(tmux display-message -p '#S')/$(tmux display-message -p '#S').yaml   # pane no. 1

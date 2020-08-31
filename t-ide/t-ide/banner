@@ -12,9 +12,13 @@
 
 
 Tide is a very simple IDE command line based on Tmux, the micro text editor, the Mcompiler add-on but above all very light.
+
 The idea is to have IDE with the most basic aspects and avoid distractions and installations of unnecessary complements, which 
 can also work on any computer with limited resources
-Tide allows you to work with any language simply by changing the variables for the execution/construction/ebugging
+
+Tide allows you to work with any language simply by changing the variables for the execution/construction/debugging in te build options windows
+
+tide also supports profiles, this will allow you to work with different languages you just have to open a new terminal and write tide foo
 
 ## Getting Started
 
@@ -58,6 +62,16 @@ micro text editor:        https://github.com/zyedidia/micro
 
     create/open profile:
      tide foo
+     
+    -w set/create work dir (default current):
+     tide [profile] -w <dir>
+ 
+    -o open/create file:
+     tide [profile] -o foo.py
+ 
+    -i set default interpreter/compiler/debugger:
+     tide [profile] -i python3
+
 
     -d delete profile:
      tide -d foo
@@ -109,6 +123,12 @@ use the keybindings of tmux to move between the panels and or modify the panels
 
 micro only runs in each session of tide with its own configuration, this will 
 prevent conflicts with a different installation of micro
+
+the configuration of the variables in the session initiated will be the same 
+for all the micro instances within that session
+
+example:
+if you start a profile with variables configured to work with python, all the new instances of micro will work with the same variables
 
 ### Tide keybindings for micro
 
@@ -181,9 +201,9 @@ more options for this plugin: https://github.com/NicolaiSoeborg/filemanager-plug
 
 ### Config t-ide panels
 
-The configuration of the layout of the panels, titles and their size is in the file:
+The configuration of the layout of the panels, titles and their size is 1: window:
 
-    /etc/t-ide/dev.yaml
+![](panelconf.png)
 
 add this to .tmux.conf for pane titles
 
