@@ -52,7 +52,7 @@ tmuxp session-manager:    https://github.com/tmux-python/tmuxp
 ttop:                     https://github.com/ton1517/ttop
 micro text editor:        https://github.com/zyedidia/micro
  micro filemanager plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
- micro mcompiler plugin:   https://github.com/Odyssey2247/mcompiler
+ micro mcompiler plugin:   https://github.com/joselbr2099/mcompiler
 ```
 
 ## Use
