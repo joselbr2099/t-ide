@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 2019 Jose Luis Blas Ralde a.k.a Odyssey2247
+# 2019 Jose Luis Blas Ralde a.k.a joselbr2099
 #email: regex1024@gmail.com
 #script to launch and manage tide
 
@@ -12,7 +12,7 @@ echo "     |   |  |   | |       ||   |___ "
 echo "     |___|  |___| |______| |_______|"
 echo "                     Temux based IDE"
 echo "                                    "
-echo "https://github.com/Odyssey2247/t-ide"
+echo "https://github.com/joselbr2099/t-ide"
 echo ""
 
 function helpt(){
