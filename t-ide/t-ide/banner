@@ -38,7 +38,7 @@ latest tmux:              https://github.com/tmux/tmux
 After installing the prerequisites write in the terminal:
 
 ```
-$ git clone https://github.com/Odyssey2247/t-ide
+$ git clone https://github.com/joselbr2099/t-ide
 $ cd t-ide
 $ chmod +x install
 $ sudo ./install
@@ -52,7 +52,7 @@ tmuxp session-manager:    https://github.com/tmux-python/tmuxp
 ttop:                     https://github.com/ton1517/ttop
 micro text editor:        https://github.com/zyedidia/micro
  micro filemanager plugin: https://github.com/NicolaiSoeborg/filemanager-plugin
- micro mcompiler plugin:   https://github.com/Odyssey2247/mcompiler
+ micro mcompiler plugin:   https://github.com/joselbr2099/mcompiler
 ```
 
 ## Use
