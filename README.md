@@ -38,7 +38,7 @@ latest tmux:              https://github.com/tmux/tmux
 After installing the prerequisites write in the terminal:
 
 ```
-$ git clone https://github.com/Odyssey2247/t-ide
+$ git clone https://github.com/joselbr2099/t-ide
 $ cd t-ide
 $ chmod +x install
 $ sudo ./install
