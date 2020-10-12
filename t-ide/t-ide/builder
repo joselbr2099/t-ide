@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #construction script for mcompiler and Tide
-#https://github.com/Odyssey2247/t-ide
+#https://github.com/joselbr2099/t-ide
 #The parameters are:
 # $1: comand and parameters
 # $2: file or folder
